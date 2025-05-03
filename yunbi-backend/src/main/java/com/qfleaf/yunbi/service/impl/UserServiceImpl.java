@@ -1,4 +1,4 @@
-package com.qfleaf.yunbi.service;
+package com.qfleaf.yunbi.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.qfleaf.yunbi.common.ResultCode;
@@ -13,6 +13,7 @@ import com.qfleaf.yunbi.security.enums.LoginType;
 import com.qfleaf.yunbi.security.jwt.JwtTokenProvider;
 import com.qfleaf.yunbi.security.request.UnifiedLoginRequest;
 import com.qfleaf.yunbi.security.response.TokenLoginResponse;
+import com.qfleaf.yunbi.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
