@@ -2,8 +2,8 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/yunbi?useSSL=false&serverTimezone=UTC
-    username: postgres
-    password: postgres
+    username: qianfang
+    password:
 
 # 日志配置
 logging:
@@ -15,6 +15,7 @@ mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  # 控制台打印 SQL
     map-underscore-to-camel-case: true  # 下划线转驼峰
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
   global-config:
     db-config:
       id-type: ASSIGN_ID  # 使用雪花ID（默认实现）
@@ -22,3 +23,10 @@ mybatis-plus:
       logic-not-delete-value: 'NULL'  # 逻辑未删除值（可选）
       logic-delete-value: 'CURRENT_TIMESTAMP'  # 逻辑删除值（可选）
       table-underline: true  # 表名下划线（可选）
+
+# jjwt自定义配置
+jwt:
+  secret: ${JWT_SECRET:jWk6x9Q2s@L8p!FdZ#rM7cY^tBhNvTgR$eW3kUzPqJoX1zAsCmYvGeLaKdR0fHqI} # 实际部署替换环境变量
+  expiration:
+    refresh-token: 86400000 # 24小时 (604800000  # 7天)
+    access-token: 900000 # 15分钟

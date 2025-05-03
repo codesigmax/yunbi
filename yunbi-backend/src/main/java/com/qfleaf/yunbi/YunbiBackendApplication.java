@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.qfleaf.yunbi.mapper")
+@MapperScan("com.qfleaf.yunbi.dao.mapper")
 public class YunbiBackendApplication {
 
     public static void main(String[] args) {
