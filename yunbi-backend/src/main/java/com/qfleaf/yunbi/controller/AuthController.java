@@ -6,6 +6,7 @@ import com.qfleaf.yunbi.security.request.UnifiedLoginRequest;
 import com.qfleaf.yunbi.security.response.TokenLoginResponse;
 import com.qfleaf.yunbi.service.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,13 +21,13 @@ public class AuthController {
     private final UserService userService;
 
     @PostMapping("/register")
-    public ApiResponse<Boolean> register(@RequestBody RegisterRequest registerRequest) {
+    public ApiResponse<Boolean> register(@Valid @RequestBody RegisterRequest registerRequest) {
         boolean register = userService.register(registerRequest);
         return ApiResponse.success(register);
     }
 
     @PostMapping("/login")
-    public ApiResponse<TokenLoginResponse> login(@RequestBody UnifiedLoginRequest loginRequest) {
+    public ApiResponse<TokenLoginResponse> login(@Valid @RequestBody UnifiedLoginRequest loginRequest) {
         TokenLoginResponse login = userService.login(loginRequest);
         return ApiResponse.success(login);
     }
