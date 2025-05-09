@@ -19,4 +19,8 @@ public class ChartDao {
         ChartAnalysis chartAnalysis = chartMapper.selectById(id);
         return Optional.ofNullable(chartConverter.toViewObj(chartAnalysis));
     }
+
+    public void save(ChartAnalysis chartAnalysis) {
+        chartMapper.insert(chartAnalysis);
+    }
 }

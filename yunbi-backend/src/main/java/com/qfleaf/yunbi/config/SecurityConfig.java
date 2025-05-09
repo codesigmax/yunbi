@@ -27,7 +27,17 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/**").permitAll()
-                        .anyRequest().authenticated()
+                        .requestMatchers(// Knife4j 相关路径
+                                "/doc.html/**",
+                                "/webjars/**",
+                                "/swagger-resources/**",
+                                "/v2/api-docs/**",
+                                "/v3/api-docs/**",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html/**",
+                                "/favicon.ico").permitAll()
+                                .anyRequest().permitAll()
+//                        .anyRequest().authenticated()
                 )
                 .formLogin(AbstractHttpConfigurer::disable)
                 .logout(AbstractHttpConfigurer::disable)

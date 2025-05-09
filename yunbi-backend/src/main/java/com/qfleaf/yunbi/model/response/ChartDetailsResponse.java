@@ -6,6 +6,8 @@ import com.qfleaf.yunbi.model.enums.ChartType;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.Map;
+
 @Data
 @Builder
 public class ChartDetailsResponse {
@@ -14,7 +16,7 @@ public class ChartDetailsResponse {
     private String goal;
     private String data;
     private ChartType type;
-    private String generateChart;
+    private Map<String, Object> generateChart;
     private String generateConclusion;
     private java.sql.Timestamp createTime;
 }
